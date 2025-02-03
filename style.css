@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Root variables for colors, fonts, and shadows */
+:root {
+    --bg-color: #121212;
+    --tile-bg: #333333;
+    --tile-border-radius: 15px;
+    --tile-size: 80px;
+    --tile-font-size: 36px;
+    --font-family: 'Orbitron', sans-serif;
+    --grid-gap: 12px;
+    --score-font-size: 30px;
+    --score-font-weight: 700;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --tile-shadow: 0 12px 24px var(--shadow-color);
+    --font-color: white;
+    --highlight-color: #00ff99;
+    --tile-scale: 1.15;
+    --glow-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Body styling */
+body {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Game container */
+.game-container {
+    width: 400px;
+    height: 540px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: var(--grid-gap);
+    padding: var(--grid-gap);
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 4px 40px rgba(0, 255, 153, 0.5);
+}
+
+/* Tile styles */
+.tile {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-color: var(--tile-bg);
+    border-radius: var(--tile-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--tile-font-size);
+    color: white;
+    font-weight: bold;
+    box-shadow: var(--tile-shadow);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect for tiles */
+.tile:hover {
+    transform: scale(var(--tile-scale));
+    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.7);
+    opacity: 0.9;
+}
+
+/* Tile active effect */
+.tile:active {
+    transform: scale(0.95);
+    box-shadow: 0 6px 20px rgba(0, 255, 153, 0.5);
+}
+
+/* Tile color variations */
+.tile-2 { background-color: #1f1f1f; box-shadow: 0 0 10px #00ff99; }
+.tile-4 { background-color: #2b2b2b; box-shadow: 0 0 10px #00ff99; }
+.tile-8 { background-color: #3d3d3d; box-shadow: 0 0 10px #00ff99; }
+.tile-16 { background-color: #4d4d4d; box-shadow: 0 0 12px #00ff99; }
+.tile-32 { background-color: #5a5a5a; box-shadow: 0 0 12px #00ff99; }
+.tile-64 { background-color: #666666; box-shadow: 0 0 14px #00ff99; }
+.tile-128 { background-color: #787878; box-shadow: 0 0 14px #00ff99; }
+.tile-256 { background-color: #8c8c8c; box-shadow: 0 0 16px #00ff99; }
+.tile-512 { background-color: #999999; box-shadow: 0 0 16px #00ff99; }
+.tile-1024 { background-color: #b0b0b0; box-shadow: 0 0 18px #00ff99; }
+.tile-2048 { background-color: #cccccc; box-shadow: 0 0 18px #00ff99; }
+
+/* Glow effect for higher value tiles */
+.tile-2048 {
+    box-shadow: 0 0 30px #ff0077, 0 0 60px #ff0077;
+}
+
+/* Neon border effect on higher tiles */
+.tile-1024, .tile-2048 {
+    border: 2px solid #00ff99;
+}
+
+/* Score display */
+.score {
+    text-align: center;
+    margin-top: 30px;
+    font-size: var(--score-font-size);
+    font-weight: var(--score-font-weight);
+    color: #00ff99;
+    text-shadow: 0 0 20px #00ff99, 0 0 30px #00ff99;
+}
